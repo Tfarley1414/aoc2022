@@ -1,9 +1,12 @@
 import java.util.Scanner;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+
 
 public class Day01 {
 
-    private final static String DATA_FILE = "SampleInput.txt";
+    private final static String DATA_FILE = "input.txt";
 
     public static void part1() {
         Scanner in;
@@ -41,23 +44,27 @@ public class Day01 {
             return;
         }
 
+        ArrayList<Integer> calList = new ArrayList<Integer>();
         
-        int mostCal = 0;
         while (in.hasNext()) {
             String line = in.nextLine();
             int cal = 0;
 
             // get total calories not seperated by space
-            while (!line.equals("") && in.hasNext()) {
+            while (!line.equals("")) {
                 cal += Integer.parseInt(line);
-                line = in.nextLine();
+                if (in.hasNext()){
+                    line = in.nextLine();
+                } else {
+                    break;
+                }
+                
             }
-            if (cal > mostCal) {
-                mostCal = cal;
-
-            }
+            calList.add(cal);
         }
-        System.out.println(mostCal);
+        Collections.sort(calList);
+        Collections.reverse(calList);
+        System.out.println(calList.remove(0) + calList.remove(0) + calList.remove(0));
 
     }
 
