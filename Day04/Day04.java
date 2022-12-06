@@ -2,6 +2,8 @@ import java.util.Scanner;
 import java.io.IOException;
 import java.io.File;
 
+
+
 public class Day04{
 
     
@@ -45,7 +47,7 @@ public class Day04{
             int num3 = Integer.parseInt(in.next().strip());
             int num4 = Integer.parseInt(in.next().strip());
 
-            if((num2>=num3 && num2 <= num4)|| (num3>=num1 && num3 <= num2)){
+            if(!(num3 < num1 || num3 > num2)){
                 total +=1;
             }
         }
