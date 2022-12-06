@@ -8,7 +8,7 @@ public class Day0n{
 
 
     public static void part1() throws IOException {
-        Scanner in = new Scanner( new File("sample.txt"));
+        Scanner in = new Scanner( new File("sampleInput.txt"));
     }
 
     public static void part2() throws IOException {
