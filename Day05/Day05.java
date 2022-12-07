@@ -59,14 +59,7 @@ public class Day05{
         for(Stack stack: stacks){
             Collections.reverse(stack);
         }
-        /*
-        *  2. read instructions
-*   read next and thwor
-*   read nextINt --> number to move
-*   read next and throw
-*   read nextInt --> move rrom
-*   read nextInt --> move to
-*/
+
         in.nextLine();
         while(in.hasNext()) {
             in.next();
@@ -91,6 +84,51 @@ public class Day05{
     }
 
     public static void part2() throws IOException {
+        ArrayList<Stack<String>> stacks = new ArrayList<Stack<String>>();
+        Scanner in = new Scanner( new File("input.txt"));
+
+
+        String line = in.nextLine();
+        int numStacks = line.length()/4 +1;
+        for (int i = 0 ; i< numStacks; i++) {
+            stacks.add(new Stack<String>());
+        }
+        putStuffInStacks(line,stacks);
+        
+        boolean done = false;
+        while(in.hasNext()&& !done) {
+            line = in.nextLine();
+            if (!line.substring(1,2).equals("1"))
+                putStuffInStacks(line,stacks);
+            else
+                done = true;
+
+        }
+        for(Stack stack: stacks){
+            Collections.reverse(stack);
+        }
+
+        in.nextLine();
+        while(in.hasNext()) {
+            in.next();
+            int numToMove = in.nextInt();
+            in.next();
+            int moveFrom = in.nextInt()-1;
+            in.next();
+            int moveTo = in.nextInt()-1;
+
+            for(int i = 0; i< numToMove; i++) {
+                String box = stacks.get(moveFrom).pop();
+                stacks.get(moveTo).push(box);
+
+            }
+        }
+
+        String result = "";
+        for(Stack<String> stack : stacks){
+            result += stack.pop();
+        }
+        System.out.print(result);
 
     
     }
