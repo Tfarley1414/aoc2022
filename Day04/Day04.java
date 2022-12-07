@@ -36,7 +36,7 @@ public class Day04{
     }
 
     public static void part2() throws IOException {
-        Scanner in = new Scanner( new File("sampleInput.txt"));
+        Scanner in = new Scanner( new File("input.txt"));
         int total = 0;
         
         in.useDelimiter(",|\\-|\\n");
@@ -47,7 +47,7 @@ public class Day04{
             int num3 = Integer.parseInt(in.next().strip());
             int num4 = Integer.parseInt(in.next().strip());
 
-            if(!(num3 < num1 || num3 > num2)){
+            if(!(num1 > num4 || num3 > num2)){
                 total +=1;
             }
         }
