@@ -6,23 +6,22 @@ public class Day06{
     
 
 
-    public static void part1() throws IOException {
+    public static void part1(int numChars) throws IOException {
         Scanner in = new Scanner( new File("input.txt"));
-
         String input = in.next();
 
         outerLoop:
-        for(int i =0; i < input.length()-3; i++){
-            String checkingFour = input.substring(i,i+4);
-            char[] chars = checkingFour.toCharArray();
-            for(int p = 0; p<chars.length; p++){
+        for(int i =0; i < input.length()-numChars-1; i++){
+            String checkingNum = input.substring(i,i+numChars);
+            char[] chars = checkingNum.toCharArray();
+            for(int p = 0; p<chars.length-1; p++){
                 for(int q = p+1; q < chars.length; q++){
                     if(chars[p]==chars[q]) {
                         continue outerLoop;
                     }
                 }
             }
-            System.out.println(i+4);
+            System.out.println(i+numChars);
             break;
         }
 
@@ -56,7 +55,7 @@ public class Day06{
 
     public static void main(String...args){
         try{
-            part2();
+            part1(14);
         } catch (Exception e) {
             System.out.println(e);
         }
