@@ -117,10 +117,16 @@ public class Day05{
             in.next();
             int moveTo = in.nextInt()-1;
 
+            Stack<String> chunkMove = new Stack<String>();
+
             for(int i = 0; i< numToMove; i++) {
                 String box = stacks.get(moveFrom).pop();
-                stacks.get(moveTo).push(box);
+                chunkMove.push(box);
 
+            }
+
+            while(!chunkMove.isEmpty()) {
+                stacks.get(moveTo).push(chunkMove.pop());
             }
         }
 
@@ -135,7 +141,7 @@ public class Day05{
 
     public static void main(String...args){
         try{
-            part1();
+            part2();
         } catch (Exception e) {
             System.out.println(e);
         }
