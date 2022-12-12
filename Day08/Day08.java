@@ -1,7 +1,7 @@
 import java.util.*;
 import java.io.*;
 
-public class Day0n{
+public class Day08{
 
     
 
